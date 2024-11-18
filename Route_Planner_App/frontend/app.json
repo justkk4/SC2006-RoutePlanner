@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "runningapp",
+    "slug": "runningapp",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location to track your run.",
+          "locationAlwaysPermission": "Allow $(PRODUCT_NAME) to use your location in the background to track your run.",
+          "locationWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location to track your run."
+        }
+      ],
+      "expo-font"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.anonymous.runningapp",
+      "config": {
+        "googleMapsApiKey": "AIzaSyC8Q-VXX0KQ8Isy9owh0kgIiyuf4NN0Zfs"
+      },
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ],
+        "NSLocationWhenInUseUsageDescription": "This app needs access to location when open to track your run.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs access to location when in the background for run tracking.",
+        "NSLocationAlwaysUsageDescription": "This app needs access to location when in the background for run tracking."
+      }
+    },
+    "android": {
+      "package": "com.anonymous.runningapp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC8Q-VXX0KQ8Isy9owh0kgIiyuf4NN0Zfs"
+        }
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE"
+      ]
+    }
+  }
+}

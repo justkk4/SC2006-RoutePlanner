@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  name      String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  runs      Run[]
+}
+
+model Run {
+  id             Int      @id @default(autoincrement())
+  date           String   // Format as 'dd/MM/yy'
+  time           String   // Format as 'HH:mm'
+  distance       String   // Store as string to match '5.0'
+  pace           String   // Store as string for 'mm:ss' format
+  routeImagePath String
+  userId         Int
+  user           User     @relation(fields: [userId], references: [id])
+}
+
