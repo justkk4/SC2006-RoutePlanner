@@ -1,3 +1,3 @@
-const HereAPI_KEY = "RKdo5AtRqYC59EMrfu9Vfz3WUCti6BI4icsiMquVCs0";
+const HereAPI_KEY = "";
 
 export default HereAPI_KEY;
